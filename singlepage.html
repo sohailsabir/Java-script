@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function showPage(page){
+            document.querySelectorAll('div').forEach(div=>{
+                div.style.display='none';
+            });
+            document.querySelector(`#${page}`).style.display='block';
+        }
+        document.addEventListener('DOMContentLoaded',function(){
+            document.querySelectorAll('div').forEach(div=>{
+                div.style.display='none';
+            });
+            document.querySelectorAll('button').forEach(button =>{
+                button.onclick=function(){
+                    showPage(this.dataset.content);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <button data-content='page1'>Page1</button>
+    <button data-content='page2'>Page2</button>
+    <button data-content='page3'>Page3</button>
+    <div id='page1'>
+        This is Page1
+    </div>
+    <div id='page2'>
+        This is Page2
+    </div>
+    <div id='page3'>
+        This is Page3
+    </div>
+</body>
+</html>
